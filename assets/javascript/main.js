@@ -1,40 +1,67 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var access_token;
 
     //AJAX Setup
-    $.ajaxPrefilter(function(options) {
-        if (options.crossDomain && $.support.cors) {
-            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-        }
-    });
+
 
     //TODO: Random Function Here
 
-    //TODO: Search Funcion Here
 
+    //TODO: Search Function Here
+    function search(token) {
+
+        //var userMark = ['US','']
+        var request = 'https://api.spotify.com/v1/search?q=party&type=artist,track&market=US&limit=10';
+
+        fetch(request, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(resJSON => console.log(resJSON))
+
+            var results = response.data;
+
+            for (let i = 0; i < results.length; i++) {
+                const element = array[i];
+
+    }
+}
+
+    $("#searchBtn").on("click", function (event) {
+        event.preventDefault();
+        authenticate();
+
+    });
     // Testing Authentication
-    function authenticate()
-    {
+    function authenticate() {
         var request = 'https://accounts.spotify.com/api/token';
         var authToken = window.btoa("797ea0763f8640698f707a7b03d85cf2:2b683093784142a996e161825afd0d26");
 
-        $.ajax({
-            method: 'POST',
-            url: request,
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Authorization": `Basic ${authToken}`
-            },
-            data: {
-                "grant_type": "client_credentials"
+        $.ajaxPrefilter(function (options) {
+            if (options.crossDomain && $.support.cors) {
+                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
             }
-        })
-        .then(res => res.access_token)
-        .then(function(token) {
-            console.log(`Token ${token}`);
-            //TODO: Logic for Search and Recommendation Functions
-        })
+        });
+
+        $.ajax({
+                method: 'POST',
+                url: request,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Authorization": `Basic ${authToken}`
+                },
+                data: {
+                    "grant_type": "client_credentials"
+                }
+            })
+            .then(res => res.access_token)
+            .then(function (token) {
+                console.log(`Token ${token}`);
+                search(token);
+                //TODO: Logic for Search and Recommendation Functions
+            })
     }
 
-    authenticate();
 })
