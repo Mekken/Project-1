@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var access_token;
+    var type = ['artist','playlist','track','album']
 
     //AJAX Setup
 
@@ -7,11 +8,10 @@ $(document).ready(function () {
     //TODO: Random Function Here
 
 
-    //TODO: Search Function Here
-    function search(token) {
+    function displayResults(token,query) {
 
-        //var userMark = ['US','']
-        var request = 'https://api.spotify.com/v1/search?q=party&type=artist,track&market=US&limit=10';
+        var searchType = type[3];
+        var request = `https://api.spotify.com/v1/search?q=${query}&type=${searchType}&limit=10`;
 
         fetch(request, {
                 headers: {
@@ -19,23 +19,41 @@ $(document).ready(function () {
                 }
             })
             .then(response => response.json())
-            .then(resJSON => console.log(resJSON))
-
-            var results = response.data;
-
-            for (let i = 0; i < results.length; i++) {
-                const element = array[i];
-
+            .then(function(resJSON) {
+                console.log(resJSON);
+                switch(searchType) {
+                    case 'artist':
+                        console.log(resJSON.artists.items);
+                        //Create Elements for artists and display in HTML
+                        break;
+                    case 'playlist':
+                        console.log(resJSON.playlists.items);
+                        //Create Elements for playlists and display in HTML                        
+                        break;
+                    case 'track':
+                        console.log(resJSON.tracks.items);
+                        //Create Elements for tracks and display in HTML
+                        break;
+                    case 'album':
+                        console.log(resJSON.albums.items);
+                        //Create Elements for albums and display in HTML
+                        break;
+                    default:
+                        console.log(resJSON.tracks.items);
+                        //Create Elements for tracks and display in HTML
+                        break;
+                }
+            })
     }
-}
 
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
-        authenticate();
-
+        var input = $('#search-text').val();
+        console.log(input);
+        search(input);
     });
-    // Testing Authentication
-    function authenticate() {
+
+    function search(searchQuery) {
         var request = 'https://accounts.spotify.com/api/token';
         var authToken = window.btoa("797ea0763f8640698f707a7b03d85cf2:2b683093784142a996e161825afd0d26");
 
@@ -58,9 +76,7 @@ $(document).ready(function () {
             })
             .then(res => res.access_token)
             .then(function (token) {
-                console.log(`Token ${token}`);
-                search(token);
-                //TODO: Logic for Search and Recommendation Functions
+                displayResults(token,searchQuery);
             })
     }
 
