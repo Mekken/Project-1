@@ -2,15 +2,12 @@ $(document).ready(function () {
     var access_token;
     var type = ['artist','playlist','track','album']
 
-    //AJAX Setup
-
-
     //TODO: Random Function Here
 
 
     function displayResults(token,query) {
 
-        var searchType = type[3];
+        var searchType = //just for testing type[3];
         var request = `https://api.spotify.com/v1/search?q=${query}&type=${searchType}&limit=10`;
 
         fetch(request, {
