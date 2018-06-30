@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var access_token;
+    $("button").click(function() {
+        console.log('You clicked on ' + this.id);
+    });
 
     //AJAX Setup
 
@@ -21,19 +24,44 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(resJSON => console.log(resJSON))
 
-            var results = response.data;
+        var results = response.data;
 
-            for (let i = 0; i < results.length; i++) {
-                const element = array[i];
+        for (let i = 0; i < results.length; i++) {
+            const element = array[i];
 
+        }
     }
-}
 
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
         authenticate();
 
     });
+
+    // TODO make artist call here
+    $("#artist").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })    
+
+    // TODO make track call here
+    $("#track").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })
+
+    //TODO make album call here
+    $("#album").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })
+
+    // TODO make playlist call here
+    $("#playlist").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })
+
     // Testing Authentication
     function authenticate() {
         var request = 'https://accounts.spotify.com/api/token';
