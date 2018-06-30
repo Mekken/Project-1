@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     function displayResults(token,query) {
 
-        var searchType = //just for testing type[3];
+        var searchType = type[3]; //just for testing
         var request = `https://api.spotify.com/v1/search?q=${query}&type=${searchType}&limit=10`;
 
         fetch(request, {
