@@ -17,7 +17,7 @@ h1{
 #search-container {
     background: white;
     border: 1px solid gray;
-    height: 54px;
+    height: 65px;
 }
 
 #search-container input {
@@ -33,3 +33,4 @@ footer {
     height: 100px;
     background: yellowgreen;
 }
+
