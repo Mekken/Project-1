@@ -1,0 +1,10 @@
+h1{
+    font-weight: bold;
+    text-align: center;
+}
+
+footer { 
+    display: block;
+    height: 100px;
+    background: yellowgreen;
+}
