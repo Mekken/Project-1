@@ -1,13 +1,21 @@
 $(document).ready(function () {
     var access_token;
+    $("button").click(function() {
+        console.log('You clicked on ' + this.id);
+    });
+
+    //AJAX Setup
+
+
     var type = ['artist','playlist','track','album']
+
 
     //TODO: Random Function Here
 
 
     function displayResults(token,query) {
 
-        var searchType = //just for testing type[3];
+        // var searchType = // just for testing type[3];
         var request = `https://api.spotify.com/v1/search?q=${query}&type=${searchType}&limit=10`;
 
         fetch(request, {
@@ -50,7 +58,32 @@ $(document).ready(function () {
         search(input);
     });
 
+    // TODO make artist call here
+    $("#artist").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })    
+
+    // TODO make track call here
+    $("#track").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })
+
+    //TODO make album call here
+    $("#album").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })
+
+    // TODO make playlist call here
+    $("#playlist").on("click", function (event) {
+        event.preventDefault();
+        // authenticate();
+    })
+
     function search(searchQuery) {
+
         var request = 'https://accounts.spotify.com/api/token';
         var authToken = window.btoa("797ea0763f8640698f707a7b03d85cf2:2b683093784142a996e161825afd0d26");
 
