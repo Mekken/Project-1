@@ -6,7 +6,9 @@ $(document).ready(function () {
 
     //AJAX Setup
 
+
     var type = ['artist','playlist','track','album']
+
 
     //TODO: Random Function Here
 
@@ -80,8 +82,8 @@ $(document).ready(function () {
         // authenticate();
     })
 
-
     function search(searchQuery) {
+
         var request = 'https://accounts.spotify.com/api/token';
         var authToken = window.btoa("797ea0763f8640698f707a7b03d85cf2:2b683093784142a996e161825afd0d26");
 
