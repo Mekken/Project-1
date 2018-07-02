@@ -26,10 +26,7 @@ $(document).ready(function () {
 
         var results = response.data;
 
-        for (let i = 0; i < results.length; i++) {
-            const element = array[i];
 
-        }
     }
 
     $("#searchBtn").on("click", function (event) {
