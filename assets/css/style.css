@@ -10,18 +10,23 @@ h1{
     background-position: center;
     min-height: 500px;
     display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 #search-container {
     background: white;
-    border: 1px solid gray;
     height: 65px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #search-container input {
-    margin-left: 10px;
+   width: 400px;
+   height: 40px;
+   border: none;
 }
 
 #main-view button {
@@ -30,7 +35,6 @@ h1{
 
 footer { 
     display: block;
-    height: 100px;
-    background: yellowgreen;
+    height: 175px;
 }
 
