@@ -5,6 +5,7 @@ h1{
     margin-left: 62px;
     margin-right: 62px;
     color: rgb(207, 207, 24);
+    font-family: 'Russo One', sans-serif;
 }
 
 body{
@@ -21,12 +22,10 @@ i{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
 }
 
 #main-view {
     width: 100%;
-    
     min-height: 475px;
     display:flex;
     flex-direction: column;
