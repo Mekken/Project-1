@@ -45,3 +45,7 @@ i {
     height: 40px;
     border: none;
 }
+
+#searchBtn {
+    background-color: rgb(238, 188, 63);
+}
