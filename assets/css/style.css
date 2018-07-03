@@ -3,11 +3,15 @@ h1{
     text-align: center;
 }
 
-#main-view {
-    width: 100%;
+#main-container {    
     background-image: url("../image/img1.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
+}
+
+#main-view {
+    width: 100%;
     min-height: 500px;
     display:flex;
     flex-direction: column;

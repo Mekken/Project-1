@@ -17,29 +17,31 @@
 <body>
     <h1>Search your favorite Artist!</h1>
     <section>
-        <div class="container" id="main-view">
-            <span class="border-0">
-            <div class="row align-items-center" id="search-container">
-                <div class="col-auto m-0">
-                    <i class="fa fa-search fa-lg"></i>
-                </div>
-                <div class="col-auto">
-                    <input type="text" placeholder="Search">
-                </div>
-                <div clas="col-auto">
-                    <button class="btn btn-success" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
+        <form>
+            <div class="container" id="main-view">
+                <span class="border-0">
+                    <div class="row align-items-center" id="search-container">
+                        <div class="col-auto m-0">
+                            <i class="fa fa-search fa-lg"></i>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div clas="col-auto">
+                            <button class="btn btn-success" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
+                        </div>
+                    </div>
+                </span>
+                <div class="row text-center">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="artist">Artist</button>
+                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
+                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
+                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
+                    </div>
                 </div>
             </div>
-            </span>
-            <div class="row text-center">
-                <div class="col">
-                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
-                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
-                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
-                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
-                </div>
-            </div>
-        </div>
+        </form>
     </section>
     <section>
         <div class="container mt-3">
