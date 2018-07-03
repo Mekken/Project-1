@@ -1,22 +1,13 @@
 $(document).ready(function () {
     var access_token;
-    $("button").click(function() {
-        console.log('You clicked on ' + this.id);
-    });
-
-    //AJAX Setup
-
-
     var type = ['artist','playlist','track','album']
-
-
-    //TODO: Random Function Here
-
 
     function displayResults(token,query) {
 
-        // var searchType = // just for testing type[3];
-        var request = `https://api.spotify.com/v1/search?q=${query}&type=${searchType}&limit=10`;
+        var searchType = type[0]; // just for testing;
+        var cleanQuery = query.replace(" ","%20").trim();
+        console.log(cleanQuery);
+        var request = `https://api.spotify.com/v1/search?q=${cleanQuery}&type=${searchType}&limit=10`;
 
         fetch(request, {
                 headers: {
@@ -25,15 +16,14 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(function(resJSON) {
-                console.log(resJSON);
                 switch(searchType) {
                     case 'artist':
-                        console.log(resJSON.artists.items);
-                        //Create Elements for artists and display in HTML
+                        artistURI = resJSON.artists.items[0].uri.split(":");
+                        displayArtistTopTracks(artistURI[2],token);
                         break;
                     case 'playlist':
                         console.log(resJSON.playlists.items);
-                        //Create Elements for playlists and display in HTML                        
+                        displayPlaylist();                      
                         break;
                     case 'track':
                         console.log(resJSON.tracks.items);
@@ -49,38 +39,62 @@ $(document).ready(function () {
                         break;
                 }
             })
+            .catch(function() {
+                //Display in Div Unable to Find Your Query
+                console.log("Failure!");    
+            })
     }
 
-    $("#searchBtn").on("click", function (event) {
-        event.preventDefault();
-        var input = $('#search-text').val();
-        console.log(input);
-        search(input);
-    });
+    function displayArtistTopTracks(uri,token)
+    {
+        var request = `https://api.spotify.com/v1/artists/${uri}/top-tracks?country=US`;
+        fetch(request, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(function(resJSON) {
+            var previewImg,
+                albumName,
+                trackName,
+                trackURL;
 
-    // TODO make artist call here
-    $("#artist").on("click", function (event) {
-        event.preventDefault();
-        // authenticate();
-    })    
+            console.log("Artists Top Tracks");
+            console.log(resJSON);
+            $('.feature-list').empty();
+            
+            resJSON.tracks.forEach(function(track, idx){
+                console.log("Track Information");
+                previewImg = track.album.images[1].url;
+                albumName = track.album.name;
+                trackName = track.name;
+                trackURL = track.external_urls.spotify;
+                console.log(previewImg);
+                console.log(albumName);
+                console.log(trackName);
+                console.log(trackURL + "\n\n");
 
-    // TODO make track call here
-    $("#track").on("click", function (event) {
-        event.preventDefault();
-        // authenticate();
-    })
+                var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
+                var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
+                var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
 
-    //TODO make album call here
-    $("#album").on("click", function (event) {
-        event.preventDefault();
-        // authenticate();
-    })
+                var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
+                infoDiv.append(`<h5>#${idx+1} Track!</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="${trackURL}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
 
-    // TODO make playlist call here
-    $("#playlist").on("click", function (event) {
-        event.preventDefault();
-        // authenticate();
-    })
+                imgDiv.append(imgElem);
+                liElem.append(imgDiv).append(infoDiv);
+                $('.feature-list').append(liElem);
+            })
+
+            /* <iframe src="${song_url}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> */
+        })
+    }
+
+    function displayPlaylist(playlist)
+    {
+
+    }
 
     function search(searchQuery) {
 
@@ -109,5 +123,32 @@ $(document).ready(function () {
                 displayResults(token,searchQuery);
             })
     }
+
+    $("#searchBtn").on("click", function (event) {
+        event.preventDefault();
+        var input = $('#search-text').val();
+        console.log(input);
+        search(input);
+    });
+
+    // TODO make artist call here
+    $("#artist").on("click", function (event) {
+        event.preventDefault();
+    })    
+
+    // TODO make track call here
+    $("#track").on("click", function (event) {
+        event.preventDefault();
+    })
+
+    //TODO make album call here
+    $("#album").on("click", function (event) {
+        event.preventDefault();
+    })
+
+    // TODO make playlist call here
+    $("#playlist").on("click", function (event) {
+        event.preventDefault();
+    })
 
 })
