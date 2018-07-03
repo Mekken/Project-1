@@ -5,44 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Search your favorite Artist!</h1>
-    <div class="container" align="center">
-
-        <div id="main-view">
-            <div class="row"></div>
-            <div id="search-container">
-                    <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                <input type="text" placeholder="Search">
-                <button button class="btn btn-success" data-music="sweet music" style="margin:10px;">Search Music</button>
-                <div clas="col-auto">
-
+    <h1>Search Your Favorite Artist!</h1>
+    <section>
+        <div class="container" id="main-view">
+            <span class="border-0">
+            <div class="row align-items-center" id="search-container">
+                <div class="col-auto m-0">
+                    <i class="fa fa-search fa-lg"></i>
                 </div>
-                <div class="row">
-                    <button button class="btn btn-success" data-music="sweet music" style="margin:10px;">Artist</button>
-                    <button button class="btn btn-success" data-music="sweet music" style="margin:10px;">Tracks</button>
-                    <button button class="btn btn-success" data-music="sweet music" style="margin:10px;">Albums</button>
-                    <button button class="btn btn-success" data-music="sweet music" style="margin:10px;">Playlist</button>
-                    
+                <div class="col-auto">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div clas="col-auto">
+                    <button class="btn btn-success" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
+                </div>
+            </div>
+            </span>
+            <div class="btn-group">
+                <div class="col"></div>
+                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
+                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
+                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
+                    <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer>
+    </section>
+    <section>
+        <div class="container mt-3">
+            <ul class="feature-list">
+                <li class="row justify-content-center align-items-center">
+                    <div class="col-12 col-md-6 col-lg-5">
+                        <img alt="Image" src="assets/image/chance-the-rapper.jpg" class="img-fluid rounded">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5">
+                        <h5>Check This Artist Info!</h5>
+                        <p>A paragraph, from the Greek paragraphos, "to write beside" or "written beside", is a self-contained
+                            unit of a discourse in writing dealing with a particular point or idea. A paragraph consists
+                            of one or more sentences.
+                        </p>
+                        <a href="#">More about this artist ></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer class="bg-success">
 
     </footer>
-
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script type="text/javascript" src="assets/javascript/main.js"></script>
