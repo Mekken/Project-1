@@ -54,7 +54,7 @@ $(document).ready(function () {
             }
         })
         .then(response => response.json())
-        .then(function(resJSON) {
+        .then((resJSON) => {
             var previewImg,
                 albumName,
                 trackName,
@@ -69,25 +69,24 @@ $(document).ready(function () {
                 previewImg = track.album.images[1].url;
                 albumName = track.album.name;
                 trackName = track.name;
-                trackURL = track.external_urls.spotify;
+                trackURI = track.uri;
+                console.log(track);
                 console.log(previewImg);
                 console.log(albumName);
                 console.log(trackName);
-                console.log(trackURL + "\n\n");
+                console.log(trackURI + "\n\n");
 
                 var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
                 var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
                 var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
 
                 var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-                infoDiv.append(`<h5>#${idx+1} Track!</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="${trackURL}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+                infoDiv.append(`<h5>#${idx+1} Track!</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="80" frameborder="0" allowtransparency="true" ></iframe>`)
 
                 imgDiv.append(imgElem);
                 liElem.append(imgDiv).append(infoDiv);
                 $('.feature-list').append(liElem);
             })
-
-            /* <iframe src="${song_url}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> */
         })
     }
 
