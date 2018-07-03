@@ -18,19 +18,21 @@
     <h1>Search your favorite Artist!</h1>
     <section>
         <div class="container" id="main-view">
+        <form>
             <span class="border-0">
             <div class="row align-items-center" id="search-container">
                 <div class="col-auto m-0">
                     <i class="fa fa-search fa-lg"></i>
                 </div>
                 <div class="col-auto">
-                    <input type="text" placeholder="Search">
+                    <input id="search-text" type="text" placeholder="Search">
                 </div>
                 <div clas="col-auto">
                     <button class="btn btn-success" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
                 </div>
             </div>
             </span>
+        </form>
             <div class="row text-center">
                 <div class="col">
                     <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
@@ -43,12 +45,12 @@
     </section>
     <section>
         <div class="container mt-3">
-            <ul class="feature-list">
+            <ol class="feature-list">
                 <li class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-6 col-lg-5">
+                    <div id="img-container" class="col-12 col-md-6 col-lg-5">
                         <img alt="Image" src="assets/image/chance-the-rapper.jpg" class="img-fluid rounded">
                     </div>
-                    <div class="col-12 col-md-6 col-lg-5">
+                    <div id="info-container" class="col-12 col-md-6 col-lg-5">
                         <h5>Check This Artist Info!</h5>
                         <p>A paragraph, from the Greek paragraphos, "to write beside" or "written beside", is a self-contained
                             unit of a discourse in writing dealing with a particular point or idea. A paragraph consists
@@ -57,7 +59,7 @@
                         <a href="#">More about this artist ></a>
                     </div>
                 </li>
-            </ul>
+            </ol>
         </div>
     </section>
     <footer class="bg-success">
