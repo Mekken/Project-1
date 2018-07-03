@@ -15,36 +15,37 @@
 </head>
 
 <body>
-    <h1>Search your favorite Artist!</h1>
+    <div class="container" id="main-container">
+    <h1>Search Your Favorite Artist!</h1>
     <section>
-        <form>
-            <div class="container" id="main-view">
-                <span class="border-0">
-                    <div class="row align-items-center" id="search-container">
-                        <div class="col-auto m-0">
-                            <i class="fa fa-search fa-lg"></i>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div clas="col-auto">
-                            <button class="btn btn-success" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
-                        </div>
-                    </div>
-                </span>
-                <div class="row text-center">
-                    <div class="col">
-                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="artist">Artist</button>
-                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
-                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
-                        <button type="button" class="btn btn-outline-warning" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
-                    </div>
+        <div class="container" id="main-view">
+            <span class="border-0">
+            <div class="row align-items-center" id="search-container">
+                <div class="col-auto m-0">
+                    <i class="fa fa-search fa-lg"></i>
+                </div>
+                <div class="col-auto">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div clas="col-auto">
+                    <button class="btn btn-warning" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
                 </div>
             </div>
-        </form>
+            </span>
+            <div class="row text-center">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
+                </div>
+            </div>
+        </div>
+
     </section>
+</div>
     <section>
-        <div class="container mt-3">
+        <div class="container mt-3 mb-5">
             <ul class="feature-list">
                 <li class="row justify-content-center align-items-center">
                     <div class="col-12 col-md-6 col-lg-5">
