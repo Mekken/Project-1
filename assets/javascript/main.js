@@ -80,7 +80,7 @@ $(document).ready(function () {
                 var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
 
                 var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-                infoDiv.append(`<h5>#${idx+1} Track!<h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="${trackURL}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+                infoDiv.append(`<h5>#${idx+1} Track!</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="${trackURL}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
 
                 imgDiv.append(imgElem);
                 liElem.append(imgDiv).append(infoDiv);
