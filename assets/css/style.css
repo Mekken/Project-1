@@ -1,14 +1,33 @@
 h1{
     font-weight: bold;
     text-align: center;
+    padding: 10px;
+    margin-left: 62px;
+    margin-right: 62px;
+    color: rgb(207, 207, 24);
+}
+
+body{
+background-color: black;
+color: white;
+}
+
+i{
+    color: black;
+}
+
+#main-container{
+    background-image: url("../image/img8.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
 }
 
 #main-view {
     width: 100%;
-    background-image: url("../image/img1.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 500px;
+    
+    min-height: 475px;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -29,8 +48,5 @@ h1{
    border: none;
 }
 
-footer { 
-    display: block;
-    height: 175px;
-}
+
 
