@@ -49,3 +49,9 @@ i {
 #searchBtn {
     background-color: rgb(238, 188, 63);
 }
+
+#img-container {
+    padding:1px;
+    border:1px solid #021a40;
+    background-color:rgb(238, 188, 63);
+}
