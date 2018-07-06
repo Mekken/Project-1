@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     function displayRandomArtists()
     {
-        //fetch("/assets/javascript/artists.txt", {mode: 'no-cors'}).then(responee => console.log(response));
+        //  fetch("assets/javascript/artists.txt", {mode: 'no-cors'}).then(responee => console.log(response));
     }
 
     function displayResults(token,query) {
@@ -82,8 +82,8 @@ $(document).ready(function () {
                 // console.log(trackName);
                 // console.log(trackURI + "\n\n");
 
-                var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
-                var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
+                var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container mb-4');
+                var imgDiv = $('<div>').addClass('col-md-5.5 img-container');
                 var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
 
                 var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
@@ -146,7 +146,7 @@ $(document).ready(function () {
             var imgElem = $('<img>').attr('src',trackImg).addClass('preview-imgs');
     
             var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-            infoDiv.append(`<h5>#${idx+1} Track!</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>`)
+            infoDiv.append(`<h5>Track ${idx+1}</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>`)
     
             imgDiv.append(imgElem);
             liElem.append(imgDiv).append(infoDiv);
