@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     function displayRandomArtists()
     {
-        fetch("/assets/javascript/artists.txt", {mode: 'no-cors'}).then(responee => console.log(response));
+        //fetch("/assets/javascript/artists.txt", {mode: 'no-cors'}).then(responee => console.log(response));
     }
 
     function displayResults(token,query) {
@@ -28,8 +28,6 @@ $(document).ready(function () {
                         break;
                     case 'playlist':
                         var playlistItems = resJSON.playlists.items;
-                        console.log("Playlist: ");
-                        console.log(playlistItems);
                         displayPlaylist(playlistItems);  
                         break;
                     case 'track':
@@ -49,7 +47,7 @@ $(document).ready(function () {
             })
             .catch(function(error) {
                 //Display in Div Unable to Find Your Query
-                console.log("Failure!");
+                console.log("Error Details: ");
                 console.log(error);    
             })
     }
@@ -69,23 +67,20 @@ $(document).ready(function () {
                 trackName,
                 trackURI;
 
-            console.log("Artists Top Tracks");
-            console.log(resJSON);
-
             $('.feature-list').empty();
             
             resJSON.tracks.forEach(function(track, idx){
-                console.log("Track Information");
+                // console.log("Track Information");
                 var previewImg = track.album.images[1].url,
                     albumName = track.album.name,
                     trackName = track.name,
                     trackURI = track.uri;
                 
-                console.log(track);
-                console.log(previewImg);
-                console.log(albumName);
-                console.log(trackName);
-                console.log(trackURI + "\n\n");
+                // console.log(track);
+                // console.log(previewImg);
+                // console.log(albumName);
+                // console.log(trackName);
+                // console.log(trackURI + "\n\n");
 
                 var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
                 var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
@@ -103,6 +98,8 @@ $(document).ready(function () {
 
     function displayPlaylist(playlist)
     {
+        $('.feature-list').empty();
+
         console.log("Playlist Information");
         playlist.forEach((playlist,idx) => {
             console.log(`playlist #${idx}`);
@@ -112,15 +109,13 @@ $(document).ready(function () {
             console.log(plName);
             console.log(plImg);
             console.log(plURI);
-
-            $('.feature-list').empty();
-        
+  
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
             var imgElem = $('<img>').attr('src',plImg).addClass('preview-imgs');
     
             var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-            infoDiv.append(`<h5>Playlist: ${plName}</h5><iframe src="https://open.spotify.com/embed?uri=${plURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
+            infoDiv.append(`<h5>Playlist: ${plName}</h5><iframe src="https://open.spotify.com/embed?uri=${plURI}" width="300" height="300" frameborder="0" allowtransparency="true" ></iframe>`)
     
             imgDiv.append(imgElem);
             liElem.append(imgDiv).append(infoDiv);
@@ -129,26 +124,29 @@ $(document).ready(function () {
     }
 
     
-    function displayTracks(track)
+    function displayTracks(tracks)
     {
+        $('.feature-list').empty();
+
         console.log("Track Information");
         tracks.forEach((track,idx) => {
             console.log(`Track #${idx}`);
-            var plName = playlist.name,
-                plImg = playlist.images[0].url,
-                plURI = playlist.uri;
-            console.log(plName);
-            console.log(plImg);
-            console.log(plURI);
+            var trackName = track.name,
+                albumName = track.album.name,
+                trackImg = track.album.images[0].url,
+                trackURI = track.uri;
+            console.log(trackName);
+            console.log(albumName);
+            console.log(trackImg);
+            console.log(trackURI);
 
-            $('.feature-list').empty();
         
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
-            var imgElem = $('<img>').attr('src',plImg).addClass('preview-imgs');
+            var imgElem = $('<img>').attr('src',trackImg).addClass('preview-imgs');
     
             var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-            infoDiv.append(`<h5>Playlist: ${plName}</h5><iframe src="https://open.spotify.com/embed?uri=${plURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
+            infoDiv.append(`<h5>#${idx+1} Track!</h5><p>Album: ${albumName}</p><p>Track: ${trackName}</p><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>`)
     
             imgDiv.append(imgElem);
             liElem.append(imgDiv).append(infoDiv);
