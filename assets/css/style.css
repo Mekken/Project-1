@@ -1,10 +1,14 @@
-h1 {
+
+h2{
     font-weight: bold;
+    font-size: 275%;
     text-align: center;
     /* padding: 10px; */
     margin-left: 62px;
     margin-right: 62px;
-    color: rgb(207, 207, 24);
+    color:yellowgreen;
+    font-family: 'Monoton', cursive;
+    font-family: 'Bungee Inline', cursive;
 }
 
 body {
@@ -48,6 +52,80 @@ i {
     height: 40px;
     border: none;
 }
+footer{
+    background-color:yellowgreen;
+    height:50px;
+    text-align: auto;
+}
+
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    height: 50px;
+    
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.9;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-youtube{
+    background: red;
+    color: white;
+}
+
+.fa-instagram{
+    background: salmon;
+    color: purple;
+}
+.a{
+   align-content: center;
+   background-color: grey;
+}
+
+      
+div.container {
+    display: table;
+    width: 100%;
+    table-layout: fixed;    /* For cells of equal size */
+    text-decoration-style: solid;
+}
+div.container span {
+    display: table-cell;
+    text-align: center;
+    
+}
+
+#header {
+    background-image: url("https://i.pinimg.com/originals/31/12/81/31128181420688cf4eda6579ef7dfcc9.gif");
+    /* background-image: url("https://media.giphy.com/media/YtPdK4YyUzBhC/200.gif"); */
+    background-size: contfain;
+    background-repeat:repeat;
+    background-color: black;
+    width: 100%;
+    height: 75px;
+    background-position: 0px -100px;
+    position: relative;
+    text-align: center;
 
 #searchBtn {
     background-color: rgb(238, 188, 63);
