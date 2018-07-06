@@ -88,7 +88,7 @@ $(document).ready(function () {
                 console.log(trackURI + "\n\n");
 
                 var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container mb-4');
-                var imgDiv = $('<div>').addClass('col-md-5.5 img-container');
+                var imgDiv = $('<div>').addClass('col-md-5.5 img-container mt-5');
                 var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
 
                 var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
