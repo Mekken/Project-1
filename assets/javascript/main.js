@@ -76,7 +76,7 @@ $(document).ready(function () {
                 console.log(trackName);
                 console.log(trackURI + "\n\n");
 
-                var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
+                var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container mb-4');
                 var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
                 var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
 
