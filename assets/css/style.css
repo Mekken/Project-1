@@ -51,15 +51,6 @@ i{
     color: rgb(107, 104, 104);
 }
 
-body {
-    background-color: black;
-    color: white;
-}
-
-i {
-    color: black;
-}
-
 #main-container {
     background-image: url("../image/img8.jpg");
     background-repeat: no-repeat;
