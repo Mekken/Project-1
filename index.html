@@ -10,53 +10,52 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Monoton" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>musicQuery</title>
 </head>
 
 <body>
-    <!-- <h1>musicQuery</h1> -->
     <div id="header">
             <h1>musicQuery</h1>    
     </div>
-    <div class="container" id="main-container">
-        <section>
+    <section id="main-container">
         <h2>Search Your Favorite Artist!</h2>
-            <div class="container" id="main-view">
-                <form>
-                    <span class="border-0">
-                        <div class="row align-items-center" id="search-container">
-                            <div class="col-auto m-0">
-                                <i class="fa fa-search fa-lg"></i>
-                            </div>
-                            <div class="col-auto">
-                                <input id="search-text" type="text" placeholder="Search">
-                            </div>
-                            <div clas="col-auto">
-                                <button class="btn btn-warning" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
-                            </div>
+        <div class="container" id="main-view">
+            <form>
+                <span class="border-0">
+                    <div class="row align-items-center" id="search-container">
+                        <div class="col-auto m-0">
+                            <i class="fa fa-search fa-lg"></i>
                         </div>
-                    </span>
-                </form>
-                <div class="row text-center">
-                    <div class="col">
-                        <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
-                        <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
-                        <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
-                        <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
+                        <div class="col-auto">
+                            <input id="search-text" type="text" placeholder="Search">
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-light" data-music="sweet music" style="margin:10px" type="submit" id="searchBtn">Search Music</button>
+                        </div>
                     </div>
+                </span>
+            </form>
+            <div class="row text-center">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
+                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </div>
-
-    <section>
+    <section class="text-white">
         <div class="container mt-3 mb-5">
             <ol class="feature-list">
-                <li class="row justify-content-center align-items-center">
-                    <div id="img-container" class="col-12 col-md-6 col-lg-5">
-                        <img alt="Image" src="assets/image/chance-the-rapper.jpg" class="img-fluid rounded">
-                    </div>
+                <li class="row justify-content-center align-items-center mb-2">
+                    <div id="img-container" class="col-12 col-md-6 col-lg-5 img-container rounded">
+   <img alt="Image" src="assets/image/chance-the-rapper.jpg" class="img-fluid rounded">
+                                   </div>
                     <div id="info-container" class="col-12 col-md-6 col-lg-5">
                         <h5>Check This Artist Info!</h5>
                         <p>A paragraph, from the Greek paragraphos, "to write beside" or "written beside", is a self-contained
@@ -69,7 +68,18 @@
             </ol>
         </div>
     </section>
-    <footer class="bg-success">
+
+    <footer class="bg-warning">
+        <div class="container">
+           <span><a href="#">Contact Us </a></span>
+            <span><a href="#">Terms of Service </a></span>
+            <span><a href="#">FAQ </a></span>
+            <span><a href="#" class="fa fa-facebook"></a></span>
+            <span><a href="#" class="fa fa-twitter"></a></span>
+            <span><a href="#" class="fa fa-youtube"></a></span>
+            <span><a href="#" class="fa fa-instagram"></a></span>
+        </div>
+
     </footer>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
