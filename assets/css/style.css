@@ -51,15 +51,6 @@ i{
     color: rgb(107, 104, 104);
 }
 
-#main-container{
-    /* padding: 10px; */
-    margin-left: 62px;
-    margin-right: 62px;
-    color: yellowgreen;
-    font-family: 'Monoton', cursive;
-    font-family: 'Bungee Inline', cursive;
-}
-
 body {
     background-color: black;
     color: white;
@@ -77,10 +68,6 @@ i {
     height: 100%;
     width: 100%;
     margin-bottom: 5px;
-    /* Stacy's Changes */
-    /* padding: 10px; */
-/*     margin-left: 62px; */
-/*     margin-right: 62px; */
     color:yellowgreen;
     font-family: 'Monoton', cursive;
     font-family: 'Bungee Inline', cursive;
