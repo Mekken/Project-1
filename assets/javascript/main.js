@@ -184,6 +184,9 @@ $(document).ready(function () {
             })
     }
 
+
+})
+
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
         var input = $('#search-text').val();
@@ -218,3 +221,4 @@ $(document).ready(function () {
     displayRandomArtists();
 
 })
+
