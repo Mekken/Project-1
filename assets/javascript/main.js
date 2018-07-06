@@ -1,12 +1,17 @@
 $(document).ready(function () {
     var access_token;
-    var type = ['artist','playlist','track','album']
+    var searchType = undefined;
+
+    function displayRandomArtists()
+    {
+        fetch("/assets/javascript/artists.txt", {mode: 'no-cors'}).then(responee => console.log(response));
+    }
 
     function displayResults(token,query) {
 
-        var searchType = type[0]; // just for testing;
+        if(!searchType)
+            searchType = "artist";
         var cleanQuery = query.replace(" ","%20").trim();
-        console.log(cleanQuery);
         var request = `https://api.spotify.com/v1/search?q=${cleanQuery}&type=${searchType}&limit=10`;
 
         fetch(request, {
@@ -18,16 +23,19 @@ $(document).ready(function () {
             .then(function(resJSON) {
                 switch(searchType) {
                     case 'artist':
-                        artistURI = resJSON.artists.items[0].uri.split(":");
+                        var artistURI = resJSON.artists.items[0].uri.split(":");
                         displayArtistTopTracks(artistURI[2],token);
                         break;
                     case 'playlist':
-                        console.log(resJSON.playlists.items);
-                        displayPlaylist();                      
+                        var playlistItems = resJSON.playlists.items;
+                        console.log("Playlist: ");
+                        console.log(playlistItems);
+                        displayPlaylist(playlistItems);  
                         break;
                     case 'track':
+                        var trackItems = resJSON.tracks.items;
                         console.log(resJSON.tracks.items);
-                        //Create Elements for tracks and display in HTML
+                        displayTracks(trackItems);
                         break;
                     case 'album':
                         console.log(resJSON.albums.items);
@@ -35,13 +43,14 @@ $(document).ready(function () {
                         break;
                     default:
                         console.log(resJSON.tracks.items);
-                        //Create Elements for tracks and display in HTML
+                        displayTracks(trackItems);
                         break;
                 }
             })
-            .catch(function() {
+            .catch(function(error) {
                 //Display in Div Unable to Find Your Query
-                console.log("Failure!");    
+                console.log("Failure!");
+                console.log(error);    
             })
     }
 
@@ -58,18 +67,20 @@ $(document).ready(function () {
             var previewImg,
                 albumName,
                 trackName,
-                trackURL;
+                trackURI;
 
             console.log("Artists Top Tracks");
             console.log(resJSON);
+
             $('.feature-list').empty();
             
             resJSON.tracks.forEach(function(track, idx){
                 console.log("Track Information");
-                previewImg = track.album.images[1].url;
-                albumName = track.album.name;
-                trackName = track.name;
-                trackURI = track.uri;
+                var previewImg = track.album.images[1].url,
+                    albumName = track.album.name,
+                    trackName = track.name,
+                    trackURI = track.uri;
+                
                 console.log(track);
                 console.log(previewImg);
                 console.log(albumName);
@@ -92,7 +103,57 @@ $(document).ready(function () {
 
     function displayPlaylist(playlist)
     {
+        console.log("Playlist Information");
+        playlist.forEach((playlist,idx) => {
+            console.log(`playlist #${idx}`);
+            var plName = playlist.name,
+                plImg = playlist.images[0].url,
+                plURI = playlist.uri;
+            console.log(plName);
+            console.log(plImg);
+            console.log(plURI);
 
+            $('.feature-list').empty();
+        
+            var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
+            var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
+            var imgElem = $('<img>').attr('src',plImg).addClass('preview-imgs');
+    
+            var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
+            infoDiv.append(`<h5>Playlist: ${plName}</h5><iframe src="https://open.spotify.com/embed?uri=${plURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
+    
+            imgDiv.append(imgElem);
+            liElem.append(imgDiv).append(infoDiv);
+            $('.feature-list').append(liElem);
+        })
+    }
+
+    
+    function displayTracks(track)
+    {
+        console.log("Track Information");
+        tracks.forEach((track,idx) => {
+            console.log(`Track #${idx}`);
+            var plName = playlist.name,
+                plImg = playlist.images[0].url,
+                plURI = playlist.uri;
+            console.log(plName);
+            console.log(plImg);
+            console.log(plURI);
+
+            $('.feature-list').empty();
+        
+            var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
+            var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
+            var imgElem = $('<img>').attr('src',plImg).addClass('preview-imgs');
+    
+            var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
+            infoDiv.append(`<h5>Playlist: ${plName}</h5><iframe src="https://open.spotify.com/embed?uri=${plURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
+    
+            imgDiv.append(imgElem);
+            liElem.append(imgDiv).append(infoDiv);
+            $('.feature-list').append(liElem);
+        })
     }
 
     function search(searchQuery) {
@@ -133,21 +194,27 @@ $(document).ready(function () {
     // TODO make artist call here
     $("#artist").on("click", function (event) {
         event.preventDefault();
+        searchType = "artist";
     })    
 
     // TODO make track call here
     $("#track").on("click", function (event) {
         event.preventDefault();
+        searchType = "track";
     })
 
     //TODO make album call here
     $("#album").on("click", function (event) {
         event.preventDefault();
+        searchType = "album";
     })
 
     // TODO make playlist call here
     $("#playlist").on("click", function (event) {
         event.preventDefault();
+        searchType = "playlist";
     })
+
+    displayRandomArtists();
 
 })
