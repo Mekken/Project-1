@@ -93,12 +93,12 @@ i{
 footer{
     background-color:yellowgreen;
     height:50px;
-    text-align: auto;
+    text-align: center;
 }
 
 /* Style all font awesome icons */
 
-.fa {
+/*.fa {
     padding: 20px;
     font-size: 30px;
     width: 60px;
@@ -109,7 +109,7 @@ footer{
 
 /* Add a hover effect if you want */
 
-.fa:hover {
+/*.fa:hover {
     opacity: 0.9;
 }
 
@@ -117,14 +117,14 @@ footer{
 
 /* Facebook */
 
-.fa-facebook {
+./*fa-facebook {
     background: #3B5998;
     color: white;
 }
 
 /* Twitter */
 
-.fa-twitter {
+/*.fa-twitter {
     background: #55ACEE;
     color: white;
 }
@@ -138,7 +138,6 @@ footer{
     background: salmon;
     color: purple;
 }
-
 .a {
     align-content: center;
     background-color: grey;
@@ -148,14 +147,14 @@ div.container {
     display: table;
     width: 100%;
     table-layout: fixed;
-    /* For cells of equal size */
+    /* For cells of equal size 
     text-decoration-style: solid;
-}
+} 
 
 div.container span {
     display: table-cell;
     text-align: center;
-}
+} */
 
 #header {
     background-image: url("https://i.pinimg.com/originals/31/12/81/31128181420688cf4eda6579ef7dfcc9.gif");
@@ -197,3 +196,6 @@ div.container span {
   border: 5px;
   background-color: gray;
 }
+
+
+
