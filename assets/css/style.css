@@ -194,5 +194,6 @@ div.container span {
 .active {
   color: black;
   outline: none;
+  border: 5px;
   background-color: gray;
 }
