@@ -58,7 +58,10 @@ i{
     background-position: center;
     height: 100%;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
+/*     padding: 10px; */
+/*     margin-left: 62px; */
+/*     margin-right: 62px; */
     color:yellowgreen;
     font-family: 'Monoton', cursive;
     font-family: 'Bungee Inline', cursive;
