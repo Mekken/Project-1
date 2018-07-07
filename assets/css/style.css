@@ -192,3 +192,13 @@ div.container span {
     height: 100%;
     width: 100%;
 }
+
+.btn:focus {
+    outline: 0;
+}
+
+.active {
+  color: black;
+  outline: none;
+  background-color: gray;
+}

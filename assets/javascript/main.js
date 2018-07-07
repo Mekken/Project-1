@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     var access_token;
     var searchType = undefined;
 
@@ -218,3 +219,10 @@ $(document).ready(function () {
     displayRandomArtists();
 
 })
+
+$(document).ready(function(){
+    $('.btn').click(function () {
+        $('.active').removeClass("active");
+        $(this).addClass("active");
+    })
+});
