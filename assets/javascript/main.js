@@ -49,19 +49,14 @@ $(document).ready(function () {
             }
             else
             {
-                console.log("Number of Artists");
                 artistList = snapshot.val().artists.names;
-                console.log(artistList.length);
-                
                 var randNum = Math.floor(Math.random() * artistList.length);
-                console.log("Random Number: " + randNum);
-                console.log("Artist: " + artistList[randNum]);                
-                
+            
                 displayArtistInfo(artistList[randNum]);
             }
 
         }, function(error) {
-            console.log("Caught an Exception: " + error.Code);
+            console.log("Error in the Database");
         })
     }
 
@@ -83,7 +78,6 @@ $(document).ready(function () {
             })
             .then(res => res.access_token)
             .then(function (token) {
-                console.log("ArtistName: " + artistName);
                 var request = `https://api.spotify.com/v1/search?q=${artistName}&type=artist&limit=1`;
 
                 fetch(request, {
@@ -93,8 +87,6 @@ $(document).ready(function () {
                 })
                 .then(response => response.json())
                 .then((resJSON) => {
-                    //Grab Artist information
-                    console.log(resJSON);
 
                     $('.feature-list').empty();
                     var artistName = resJSON.artists.items[0].name,
@@ -103,11 +95,6 @@ $(document).ready(function () {
                         artistFollowers = resJSON.artists.items[0].followers.total;
                         artistId = resJSON.artists.items[0].id,
                         genresDiv = null
-
-                    console.log("Artist Information: ");
-                    console.log(artistName);
-                    console.log(genres);
-                    console.log(artistImg);
 
                     genresDiv = $("<div>");
                     genres.forEach(function(genre,idx) {
@@ -151,29 +138,33 @@ $(document).ready(function () {
                         break;
                     case 'playlist':
                         var playlistItems = resJSON.playlists.items;
-                        console.log("Playlist: ");
-                        console.log(playlistItems);
-                        displayPlaylist(playlistItems);  
+                        if(playlistItems.length > 0)
+                            displayPlaylist(playlistItems);
+                        else
+                            errorBadQuery();  
                         break;
                     case 'track':
                         var trackItems = resJSON.tracks.items;
-                        console.log(trackItems);
-                        displayTracks(trackItems);
+                        if(trackItems.length > 0)
+                            displayTracks(trackItems);
+                        else
+                            errorBadQuery();
                         break;
                     case 'album':
-                        var albumItems = resJSON.albums.items; 
-                        console.log(albumItems);
-                        displayAlbums(albumItems);
+                        var albumItems = resJSON.albums.items;
+                        if(albumItems.length > 0)
+                            displayAlbums(albumItems);
+                        else
+                            errorBadQuery();
                         break;
                     default:
-                        console.log(resJSON.tracks.items);
                         displayTracks(trackItems);
                         break;
                 }
             })
             .catch(function(error) {
                 //Display in Div Unable to Find Your Query
-                $('.feature-list').empty().append(`<h5>OOPS!</h5><p>Looks Like we were unable to find what you were looking for.</p><p>Please Try Again</p>`).attr('style','text-align: center;');
+                errorBadQuery();
             })
     }
 
@@ -193,24 +184,14 @@ $(document).ready(function () {
                 trackName,
                 trackURI;
 
-            console.log("Artists Top Tracks");
-            console.log(resJSON);
-
             $('.feature-list').empty();
             
             resJSON.tracks.forEach(function(track, idx){
-                console.log("Track Information");
                 var previewImg = track.album.images[1].url,
                     albumName = track.album.name,
                     trackName = track.name,
                     trackURI = track.uri;
                 
-                console.log(track);
-                console.log(previewImg);
-                console.log(albumName);
-                console.log(trackName);
-                console.log(trackURI + "\n\n");
-
                 var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container mb-4');
                 var imgDiv = $('<div>').addClass('col-md-5.5 img-container mt-5');
                 var imgElem = $('<img>').attr('src',previewImg).addClass('preview-imgs');
@@ -223,6 +204,10 @@ $(document).ready(function () {
                 $('.feature-list').append(liElem);
             })
         })
+        .catch(function(error) {
+            //Display in Div Unable to Find Your Query
+            errorBadQuery();
+        })
     }
 
     //Display Ten Related Playlists based on Search Query
@@ -230,16 +215,10 @@ $(document).ready(function () {
     {
         $('.feature-list').empty();
 
-        // console.log("Playlist Information");
         playlist.forEach((playlist,idx) => {
-            // console.log(`playlist #${idx}`);
             var plName = playlist.name,
                 plImg = playlist.images[0].url,
                 plURI = playlist.uri;
-
-            // console.log(plName);
-            // console.log(plImg);
-            // console.log(plURI);
   
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
@@ -259,27 +238,20 @@ $(document).ready(function () {
     {
         $('.feature-list').empty();
 
-        // console.log("Track Information");
-        tracks.forEach((track,idx) => {
-            // console.log(`Track #${idx}`);
+        tracks.forEach((track) => {
             var trackName = track.name,
                 albumName = track.album.name,
                 trackImg = track.album.images[0].url,
                 trackURI = track.uri;
 
-            // console.log(trackName);
-            // console.log(albumName);
-            // console.log(trackImg);
-            // console.log(trackURI);
-
             $('.feature-list').empty();
         
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
-            var imgElem = $('<img>').attr('src',plImg).addClass('preview-imgs');
+            var imgElem = $('<img>').attr('src',trackImg).addClass('preview-imgs');
     
             var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-            infoDiv.append(`<h5>Playlist: ${plName}</h5><iframe src="https://open.spotify.com/embed?uri=${plURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
+            infoDiv.append(`<h5>Playlist: ${trackName}</h5><h5>Album: ${albumName}</h5><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
     
             imgDiv.append(imgElem);
             liElem.append(imgDiv).append(infoDiv);
@@ -292,20 +264,12 @@ $(document).ready(function () {
     {
         $('.feature-list').empty();
 
-        // console.log("Album Information");
         tracks.forEach((album,idx) => {
-            // console.log(`Album #${idx}`);
             var albumName = album.name,
                 albumType = album.album_type,
                 albumImg = album.images[0].url,
                 albumURI = album.uri;
 
-            // console.log(albumName);
-            // console.log(albumType);
-            // console.log(albumImg);
-            // console.log(albumURI);
-
-        
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
             var imgElem = $('<img>').attr('src',albumImg).addClass('preview-imgs');
@@ -317,6 +281,10 @@ $(document).ready(function () {
             liElem.append(imgDiv).append(infoDiv);
             $('.feature-list').append(liElem);
         })
+    }
+
+    function errorBadQuery() {
+        $('.feature-list').empty().append(`<h5>OOPS!</h5><p>Looks Like we were unable to find what you were looking for.</p><p>Please Try Again</p>`).attr('style','text-align: center;');
     }
 
     //Get Access Token and then initiate Search
@@ -343,7 +311,6 @@ $(document).ready(function () {
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
         var input = $('#search-text').val();
-        console.log(input);
         search(input);
     });
 
@@ -368,4 +335,11 @@ $(document).ready(function () {
     })
 
     initDatabase();
+
+    $(document).ready(function(){
+        $('.btn').click(function () {
+            $('.active').removeClass("active");
+            $(this).addClass("active");
+        })
+    });
 })
