@@ -243,15 +243,13 @@ $(document).ready(function () {
                 albumName = track.album.name,
                 trackImg = track.album.images[0].url,
                 trackURI = track.uri;
-
-            $('.feature-list').empty();
         
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
             var imgElem = $('<img>').attr('src',trackImg).addClass('preview-imgs');
     
             var infoDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5');
-            infoDiv.append(`<h5>Playlist: ${trackName}</h5><h5>Album: ${albumName}</h5><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
+            infoDiv.append(`<h5>Track: ${trackName}</h5><h5>Album: ${albumName}</h5><iframe src="https://open.spotify.com/embed?uri=${trackURI}" width="300" height="380" frameborder="0" allowtransparency="true" ></iframe>`)
     
             imgDiv.append(imgElem);
             liElem.append(imgDiv).append(infoDiv);
@@ -336,7 +334,6 @@ $(document).ready(function () {
 
     initDatabase();
 
-
     $(document).ready(function(){
         $('.btn').click(function () {
             $('.active').removeClass("active");
@@ -344,11 +341,3 @@ $(document).ready(function () {
         })
     });
 })
-
-
-  
-
-
-
-
-
