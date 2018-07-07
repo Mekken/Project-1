@@ -41,11 +41,25 @@
             </form>
             <div class="row text-center">
                 <div class="col">
-                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="artsist">Artist</button>
-                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="track">Tracks</button>
-                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="album">Albums</button>
-                    <button type="button" class="btn btn-secondary" data-music="sweet music" style="margin:10px; width:130px" id="playlist">Playlist</button>
+                    <button type="button" class="btn btn-primary active" data-toggle="buttons" style="margin:10px; width:130px" id="artist">Artist</button>
+                    <button type="button" class="btn btn-primary" data-toggle="buttons" style="margin:10px; width:130px" id="track">Tracks</button>
+                    <button type="button" class="btn btn-primary" data-toggle="buttons" style="margin:10px; width:130px" id="album">Albums</button>
+                    <button type="button" class="btn btn-primary" data-toggle="buttons" style="margin:10px; width:130px" id="playlist">Playlist</button>
                 </div>
+                <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                          <input type="radio" name="options" id="artist" autocomplete="off" checked> Artist
+                        </label>
+                        <label class="btn btn-primary">
+                          <input type="radio" name="options" id="track" autocomplete="off"> Tracks
+                        </label>
+                        <label class="btn btn-primary">
+                          <input type="radio" name="options" id="album" autocomplete="off"> Album
+                        </label>
+                        <label class="btn btn-primary">
+                          <input type="radio" name="options" id="playlist" autocomplete="off"> Playlist
+                        </label>
+                </div> -->
             </div>
         </div>
     </section>
@@ -71,7 +85,7 @@
     </section>
 
     <footer class="bg-warning">
-        <div class="container">
+        <div class="foot-container">
             <span>
                 <a href="#">Contact Us </a>
             </span>

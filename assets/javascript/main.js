@@ -368,4 +368,12 @@ $(document).ready(function () {
     })
 
     initDatabase();
+  $(document).ready(function(){
+    $('.btn').click(function () {
+        $('.active').removeClass("active");
+        $(this).addClass("active");
+    })
+  
 })
+
+

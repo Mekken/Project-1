@@ -177,8 +177,14 @@ div.container span {
 .img-container {
     padding: 6px;
     border: 8px outset rgb(238, 188, 63);
-    /* border-image-source: url("../image/Music_Note_Pin.png") */
     background-image: linear-gradient( to right, rgb(243, 88, 88), rgb(238, 188, 63) 100%);
+    width: 300px;
+    height: auto;
+}
+
+.img-container img {
+    height: auto;
+    width: 100%;
 }
 
 #results-container {
@@ -188,4 +194,14 @@ div.container span {
     background-position: center;
     height: 100%;
     width: 100%;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.active {
+  color: black;
+  outline: none;
+  background-color: gray;
 }
