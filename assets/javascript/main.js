@@ -338,7 +338,7 @@ $(document).ready(function () {
 
 
     $(document).ready(function(){
-        $('.btn').click(function () {
+        $('.trigger').click(function () {
             $('.active').removeClass("active");
             $(this).addClass("active");
         })

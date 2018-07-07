@@ -1,8 +1,19 @@
 h1 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 50px;
     color: rgb(105, 105, 105);
     text-align: center;
     font-weight: bold;
     background-color: none;
+    /* change the font color */
+    -webkit-animation-name: header;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: header;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #header {
@@ -26,24 +37,33 @@ h2 {
     margin-right: 62px;
     color: rgb(228, 228, 128);
     /* change the font color */
-    -webkit-animation-name: example;
+    -webkit-animation-name: title;
     /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s;
+    -webkit-animation-duration: 6s;
     /* Safari 4.0 - 8.0 */
-    animation-name: example;
-    animation-duration: 4s;
+    animation-name: title;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 /* change the font color */
 
-@-webkit-keyframes example {
+@-webkit-keyframes title {
     from {
         color: rgb(114, 32, 32);
     }
     to {
         color: rgb(228, 228, 157);
+    }
+}
+
+@-webkit-keyframes header {
+    from {
+        color: darkgray;
+    }
+    to {
+        color: rgb(105, 105, 105);
     }
 }
 
@@ -64,9 +84,6 @@ i {
     height: 100%;
     width: 100%;
     margin-bottom: 30px;
-    /*     padding: 10px; */
-    /*     margin-left: 62px; */
-    /*     margin-right: 62px; */
     color: yellowgreen;
     font-family: 'Monoton', cursive;
     font-family: 'Bungee Inline', cursive;
@@ -96,70 +113,12 @@ i {
 }
 
 footer {
-    background-color: yellowgreen;
+    background-color: rgb(212, 163, 37);
     height: 50px;
     text-align: center;
+    color: darkslategray;
+    padding-top: 15px;
 }
-
-/* Style all font awesome icons */
-
-/*.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 60px;
-    text-align: center;
-    text-decoration: none;
-    height: 50px;
-}
-
-/* Add a hover effect if you want */
-
-/*.fa:hover {
-    opacity: 0.9;
-}
-
-/* Set a specific color for each brand */
-
-/* Facebook */
-
-/*fa-facebook {
-    background: #3B5998;
-    color: white;
-}
-
-/* Twitter */
-
-/*.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-
-.fa-youtube {
-    background: red;
-    color: white;
-}
-
-.fa-instagram {
-    background: salmon;
-    color: purple;
-}
-.a {
-    align-content: center;
-    background-color: grey;
-}
-
-div.container {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    /* For cells of equal size 
-    text-decoration-style: solid;
-} 
-
-div.container span {
-    display: table-cell;
-    text-align: center;
-} */
 
 #header {
     background-image: url("https://i.pinimg.com/originals/31/12/81/31128181420688cf4eda6579ef7dfcc9.gif");
@@ -191,13 +150,26 @@ div.container span {
     width: 100%;
 }
 
-.btn:focus {
+.trigger:focus {
     outline: 0;
 }
 
 .active {
-    color: black;
+    color: white;
     outline: none;
-    border: 5px;
     background-color: gray;
+    box-shadow: .5px 10px rgb(53, 52, 52);
+}
+
+.trigger {
+    /* border: 1px solid black; */
+    background-color: rgb(2, 90, 206);
+    color: white;
+    font-size: 18px;
+}
+
+p {
+    /* font-family: 'Caveat', cursive; */
+    /* font-family: 'Shadows Into Light', cursive; */
+    font-family: 'Boogaloo', cursive;
 }
