@@ -243,8 +243,6 @@ $(document).ready(function () {
                 albumName = track.album.name,
                 trackImg = track.album.images[0].url,
                 trackURI = track.uri;
-
-            $('.feature-list').empty();
         
             var liElem = $('<li>').addClass('row justify-content-center align-items-center info-container');
             var imgDiv = $('<div>').addClass('col-12 col-md-6 col-lg-5 img-container');
@@ -336,7 +334,6 @@ $(document).ready(function () {
 
     initDatabase();
 
-
     $(document).ready(function(){
         $('.trigger').click(function () {
             $('.active').removeClass("active");
@@ -344,11 +341,3 @@ $(document).ready(function () {
         })
     });
 })
-
-
-  
-
-
-
-
-
