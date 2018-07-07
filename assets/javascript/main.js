@@ -335,7 +335,7 @@ $(document).ready(function () {
     })
 
     initDatabase();
-<<<<<<< HEAD
+
 
     $(document).ready(function(){
         $('.btn').click(function () {
@@ -344,14 +344,11 @@ $(document).ready(function () {
         })
     });
 })
-=======
-  $(document).ready(function(){
-    $('.btn').click(function () {
-        $('.active').removeClass("active");
-        $(this).addClass("active");
-    })
+
+
   
-})
 
 
->>>>>>> 283bf3c0e61f2a0dc031e0c88c0e4debd2223e2d
+
+
+

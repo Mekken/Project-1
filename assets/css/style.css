@@ -187,15 +187,6 @@ div.container span {
     width: 100%;
 }
 
-#results-container {
-    background-image: url("../image/free-music-notes.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    width: 100%;
-}
-
 .btn:focus {
     outline: 0;
 }
